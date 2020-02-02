@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import "~angular-vertical-timeline/dist/vertical-timeline.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 :root {
   --primary-color: #dc3545;
   --dark-color: #333333;
@@ -16,7 +18,7 @@ body {
   font-family: 'Roboto', sans-serif ;
   font-size: 1rem;
   line-height: 1.6;
-  background: #fff;
+  background: #fff; 
   color: #333;
 }
 
