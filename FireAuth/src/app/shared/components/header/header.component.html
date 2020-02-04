@@ -1,0 +1,42 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="toggleSideBarShow()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{ user?.displayName }}</span>
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <ul fxLayout="row" fxLayoutGap="20px">
+        <li>
+          <button mat-icon-button>
+            <mat-icon>settings</mat-icon>
+          </button>
+        </li>
+        <li>
+          <button mat-icon-button>
+            <mat-icon>help_outline</mat-icon>
+          </button>
+        </li>
+        <li>
+          <button mat-button [matMenuTriggerFor]="menu" *ngIf="!user?.photoURL">
+            <mat-icon>personal-outline</mat-icon>
+          </button>
+          <button mat-button [matMenuTriggerFor]="menu" *ngIf="user?.photoURL" >
+            <img class="photoUser"src="{{user?.photoURL}}" alt="user_photo">
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngIf="user" (click)="signOut()">
+              <mat-icon>exit_to_app</mat-icon>
+              Sign Out
+            </button>
+            <button mat-menu-item (click)="signIn()" *ngIf="!user">
+              <mat-icon>how_to_reg</mat-icon>
+              Sign In
+            </button>
+          </mat-menu>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+

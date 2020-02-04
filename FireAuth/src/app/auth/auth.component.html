@@ -1,0 +1,10 @@
+<div class="auth">
+  <ngx-auth-firebaseui
+    appearance="standard"
+    (onSuccess)="printUser($event)"
+    (onError)="printError($event)"
+  >
+  </ngx-auth-firebaseui>
+  {{ newUser | async}}
+
+</div>

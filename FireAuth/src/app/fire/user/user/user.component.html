@@ -1,0 +1,21 @@
+<mat-card class="user-card">
+  <mat-card-header>
+    <mat-card-title>{{ user?.displayName }}</mat-card-title>
+    <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image *ngIf="user.photoURL" src="{{ user?.photoURL }}" alt="Photo of a {{ user?.displayName }}"/>
+  <span><mat-icon class="person"  *ngIf="!user.photoURL" aria-setsize="100">person</mat-icon></span> 
+  <mat-card-content class="content">
+    <p>
+      {{ user?.providerId}}
+    </p>
+    <p>
+      {{ user?.photoURL}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions> 
+</mat-card>
+<br>

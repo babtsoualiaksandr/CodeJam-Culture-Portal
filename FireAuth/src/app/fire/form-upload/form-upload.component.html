@@ -1,0 +1,19 @@
+<div *ngIf="currentFileUpload" class="progress">
+  <div class="progress-bar progress-bar-info progress-bar-striped"
+    role="progressbar" attr.aria-valuenow="{{percentage}}"
+    aria-valuemin="0" aria-valuemax="100"
+    [ngStyle]="{width:percentage+'%'}">
+    {{percentage}}%</div>
+</div>
+
+
+  <input hidden #fileInput type="file"
+  (change)="selectFile($event)">
+  <button class="btn waves-effect waves-light"
+  (click)="fileInput.click()">Choose</button>
+
+
+
+<button class="btn waves-effect waves-light" [disabled]="!selectedFiles"
+  (click)="upload()">Upload</button>
+

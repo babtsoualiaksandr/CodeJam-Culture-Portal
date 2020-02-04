@@ -1,0 +1,10 @@
+.file {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  transition: all 0.5s;
+  &:hover {
+    background-color: rgb(246, 250, 250);
+  }
+}

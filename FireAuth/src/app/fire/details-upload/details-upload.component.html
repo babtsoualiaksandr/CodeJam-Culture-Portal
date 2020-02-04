@@ -1,0 +1,10 @@
+<div class="file">
+  <a href="{{ fileUpload.url }}">{{ fileUpload.name }}</a>
+  <a href="{{ fileUpload.url }}">{{ fileUpload.date }}</a>
+  <img src="{{ fileUpload.url }}" alt="" height="150px" />
+  <a
+    (click)="deleteFileUpload(fileUpload)"
+    class="btn-floating btn-large waves-effect waves-light red"
+    ><i class="material-icons">delete</i></a
+  >
+</div>
