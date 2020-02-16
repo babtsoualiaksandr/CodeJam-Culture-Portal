@@ -17,7 +17,6 @@ export class FirestoreComponent implements OnInit {
   constructor(private fireService: FirestoreService, private afa: AngularFireAuth) {}
 
   ngOnInit() {
-    console.log(this.fireService);
     this.fireService
       .getFileUploads(100)
       .snapshotChanges()
@@ -25,8 +24,12 @@ export class FirestoreComponent implements OnInit {
       .subscribe(fileUploads => {
         this.listItemsStorage = fileUploads;
       });
-    console.log(this.listItemsStorage);
+
     this.fireService.getUsersAll();
-    this.afa.user.subscribe(user => this.user = user);
+    console.log('***** firestore', this.afa);
+    this.afa.user.subscribe(user => {
+      console.log('********** user', user);
+      this.user = user;
+    });
   }
 }

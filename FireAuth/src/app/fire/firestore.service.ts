@@ -2,32 +2,42 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { FileUpload } from './fileupload';
+import { FileUpload } from '../shared/models/fileupload';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import * as moment from 'moment';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { User } from 'firebase';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FirestoreService {
-  private basePath = '/uploads';
-  items: Observable<any[]>;
+  private basePath;
+  public users$: Observable<User[]>;
 
   constructor(
     private afa: AngularFireAuth,
     private dbUsers: AngularFirestore,
     private db: AngularFireDatabase,
     private storage: AngularFireStorage,
-  ) {}
-  pushFileToStorage(fileUpload: FileUpload): Observable<number> {
-    let uidUser = '';
+  ) {
+    this.setBasePath();
+  }
+
+  async setBasePath() {
+    console.log('1');
     this.afa.user.subscribe(user => {
-      uidUser = user.uid;
-      console.log(uidUser);
+      console.log('++++++++++++++++++++++2');
+      this.basePath = '/uploads/' + user.uid;
     });
+    console.log('3');
+    return await this.afa.user.toPromise();
+  }
+
+  pushFileToStorage(fileUpload: FileUpload): Observable<number> {
     const filePath = `${this.basePath}/${fileUpload.file.name}`;
+    console.log(filePath);
     const storageRef = this.storage.ref(filePath);
     const uploadTask = this.storage.upload(filePath, fileUpload.file);
 
@@ -74,7 +84,8 @@ export class FirestoreService {
     storageRef.child(name).delete();
   }
 
-  getUsersAll() {
-    return this.dbUsers.collection('users').valueChanges();
+  getUsersAll(): Observable<User[]> {
+    this.users$ = this.dbUsers.collection<User>('users').valueChanges();
+    return this.dbUsers.collection<User>('users').valueChanges();
   }
 }

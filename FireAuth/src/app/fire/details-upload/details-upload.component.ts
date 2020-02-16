@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FileUpload } from '../fileupload';
+import { FileUpload } from '../../shared/models/fileupload';
 import { FirestoreService } from '../firestore.service';
 
 @Component({

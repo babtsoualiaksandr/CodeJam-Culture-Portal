@@ -1,0 +1,36 @@
+<ul>
+  <li *ngFor="let photographer of photographerService.items | async; let i= index">
+   {{i}} {{ photographer.id }} for {{ photographer.name }}
+
+  </li>
+</ul>
+
+<form [formGroup]="listPhotographers">
+  <ul formArrayName="photographersName">
+    <li *ngFor= "let photographerControl of getControls(); let i=index">
+        <mat-form-field>
+          <input matInput formControlName = "{{i}}">
+          <input matInput formControlName = "{{i}}">
+        </mat-form-field>
+        <button mat-button (click)= removeItem(i)>Remove</button>
+    </li>
+  </ul>
+  <ul formArrayName="photographersName">
+    <li *ngFor= "let photographerControl of getControls(); let i=index">
+        <mat-form-field>
+          <input matInput formControlName = "{{i}}">
+          <input matInput formControlName = "{{i}}">
+        </mat-form-field>
+        <button mat-button (click)= removeItem(i)>Remove</button>
+    </li>
+  </ul>
+  <button mat-button (click)= addItem()>Add</button>
+
+</form>
+
+
+<app-add-photographer></app-add-photographer>
+
+
+
+

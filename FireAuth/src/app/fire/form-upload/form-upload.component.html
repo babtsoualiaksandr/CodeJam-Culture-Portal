@@ -9,11 +9,11 @@
 
   <input hidden #fileInput type="file"
   (change)="selectFile($event)">
-  <button class="btn waves-effect waves-light"
+  <button mat-button color="primary"
   (click)="fileInput.click()">Choose</button>
 
 
 
-<button class="btn waves-effect waves-light" [disabled]="!selectedFiles"
+<button mat-button color="primary" [disabled]="!selectedFiles"
   (click)="upload()">Upload</button>
 

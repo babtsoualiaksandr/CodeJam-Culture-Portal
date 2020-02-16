@@ -20,6 +20,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { FireModule } from './fire/fire.module';
+import { TimeLineComponent } from './shared/time-line/time-line.component';
+import { MatSliderModule } from '@angular/material/slider';
+
+import { VerticalTimelineModule } from 'angular-vertical-timeline';
+import { YouTubeModule } from './you-tube/you-tube.module';
 
 
 @NgModule({
@@ -29,12 +34,15 @@ import { FireModule } from './fire/fire.module';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    TimeLineComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatSliderModule,
+    VerticalTimelineModule,
     NgxAuthFirebaseUIModule.forRoot(environment.firebase, () => 'project-85570893344', {
       enableFirestoreSync: true, // enable/disable autosync users with firestore
       toastMessageOnAuthSuccess: false, // whether to open/show a snackbar message on auth success - default : true
@@ -59,8 +67,8 @@ import { FireModule } from './fire/fire.module';
     MatMenuModule,
     FlexLayoutModule,
     MatListModule,
-    FlexLayoutModule,
     FireModule,
+    YouTubeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

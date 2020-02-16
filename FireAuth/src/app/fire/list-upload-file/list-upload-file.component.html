@@ -1,5 +1,7 @@
-<div class="collection">
-  <div class="fileUploads" *ngFor="let file of fileUploads">
-    <app-details-upload [fileUpload]='file'></app-details-upload>
-  </div>
-</div>
+<ul class="list">
+  <li role="listitem" *ngFor="let file of fileUploads">
+    <app-details-upload [fileUpload]="file"></app-details-upload>
+    <mat-divider></mat-divider>
+    <br>
+  </li>
+</ul>

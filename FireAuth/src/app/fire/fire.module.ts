@@ -13,6 +13,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { ListUploadFileComponent } from './list-upload-file/list-upload-file.component';
 import { FormUploadComponent } from './form-upload/form-upload.component';
 import { DetailsUploadComponent } from './details-upload/details-upload.component';
+import { MatButtonModule, MatListModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { ListPhotographerComponent } from './photographer/list-photographer/list-photographer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddPhotographerComponent } from './photographer/add-photographer/add-photographer.component';
 
 @NgModule({
   declarations: [
@@ -21,15 +25,23 @@ import { DetailsUploadComponent } from './details-upload/details-upload.componen
      UserComponent,
      ListUploadFileComponent,
      FormUploadComponent,
-     DetailsUploadComponent
+     DetailsUploadComponent,
+     ListPhotographerComponent,
+     AddPhotographerComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
   ],
   exports: [FirestoreComponent],
   providers: [FirestoreService],

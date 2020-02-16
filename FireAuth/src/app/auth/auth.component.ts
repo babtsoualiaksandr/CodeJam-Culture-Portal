@@ -3,6 +3,7 @@ import { Theme } from 'ngx-auth-firebaseui';
 import { User } from 'firebase';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { FirestoreService } from '../fire/firestore.service';
 
 @Component({
   selector: 'app-auth',
@@ -13,15 +14,11 @@ export class AuthComponent implements OnInit {
   user: User;
   public newUser: Subject<User> = new Subject();
   themes = Theme;
-  constructor(private afa: AngularFireAuth ) {
-
-  }
+  constructor(private afa: AngularFireAuth, private firesStore: FirestoreService) {}
   ngOnInit() {}
   printUser(event) {
     console.log(event);
-    this.afa.user.subscribe( user => {
-      console.log(user);
-      this.newUser.next(user)});
+    this.firesStore.setBasePath();
   }
 
   printError(event) {

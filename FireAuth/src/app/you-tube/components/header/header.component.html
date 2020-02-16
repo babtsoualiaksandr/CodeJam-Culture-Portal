@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class= "search" fxFlex fxLayout="row" fxLayoutAlign="end center">
+      <button mat-icon-button>
+        <mat-icon>play_circle_filled</mat-icon>
+      </button>
+      <form>
+      <mat-form-field class="example-full-width">
+        <mat-label>Search</mat-label>
+        <input type="text" matInput placeholder="search" #searchInput/>
+      </mat-form-field>
+      <button type="submit" mat-icon-button (click)="onSearchInTitles(searchInput.value)">
+        <mat-icon>youtube_searched_for</mat-icon>
+      </button>
+      </form>
+      <button mat-icon-button (click)="onShowSort()">
+        <mat-icon>tune</mat-icon>
+      </button>
+    </div>
+    <span></span>
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <ul fxLayout="row" fxLayoutGap="20px">
+        <li>You Name</li>
+        <li>
+          <button mat-button>
+            <mat-icon>personal-outline</mat-icon>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<app-sort-form *ngIf="showSort"></app-sort-form>

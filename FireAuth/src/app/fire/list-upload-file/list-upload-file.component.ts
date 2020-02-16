@@ -15,7 +15,7 @@ export class ListUploadFileComponent implements OnInit {
     console.log(this.uploadService);
     // Use snapshotChanges().pipe(map()) to store the key
     this.uploadService
-      .getFileUploads(10)
+      .getFileUploads(100)
       .snapshotChanges()
       .pipe(map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))))
       .subscribe(fileUploads => {

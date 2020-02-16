@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+<div class= "search" fxFlex fxLayout="row" fxLayoutAlign="center center">
+  <p>Sorting by</p>
+  <button mat-button (click) = "onSortBy('date')">
+    <a>date</a>
+  </button>
+  <button mat-button (click)= "onSortBy('viewCount')">
+    <a>count of views</a>
+  </button>
+  <mat-form-field class="mat-headline" >
+    <mat-label>by word or sentance</mat-label>
+    <input type="text" matInput placeholder="word or sentance" [(ngModel)]="stateService.searchInTitles" />
+  </mat-form-field>
+</div>
+</mat-toolbar-row>
+</mat-toolbar>

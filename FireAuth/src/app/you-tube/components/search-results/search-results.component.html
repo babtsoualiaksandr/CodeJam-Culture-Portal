@@ -1,0 +1,25 @@
+<mat-card class="card">
+  <mat-card-title> </mat-card-title>
+
+  <mat-card-subtitle> </mat-card-subtitle>
+
+  <mat-card-content>
+    <div fxLayout="row wrap">
+      <div
+        fxFlex="25"
+        fxFlex.sm="33.3"
+        fxFlex.xs="50"
+        *ngFor="
+          let item of response.items
+          | filter: stateService.searchInTitles
+          | sort: stateService.bySort
+
+        "
+      >
+        <mat-grid-list cols="12" rowHeight="1:1">
+          <app-search-item [item]="item"></app-search-item>
+        </mat-grid-list>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

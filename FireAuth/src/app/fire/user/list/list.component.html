@@ -1,9 +1,9 @@
 <div class="list">
 <h3>Contacts Users App</h3>
 <ul>
-  <li *ngFor="let user of users">
+  <li *ngFor="let user of fireService.users$ | async">
     <app-user [user] = user></app-user>
   </li>
+  <mat-divider></mat-divider>
 </ul>
-</div>
 

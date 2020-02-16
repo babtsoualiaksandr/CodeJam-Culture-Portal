@@ -1,0 +1,24 @@
+
+.card {
+  margin: 20px;
+  width: auto;
+  height: auto;
+}
+
+mat-card-subtitle {
+  font-size: smaller;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-card-title {
+  display: block;
+  height: 50px;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

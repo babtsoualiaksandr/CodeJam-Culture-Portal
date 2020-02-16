@@ -10,10 +10,10 @@ import { User } from 'firebase';
 export class ListComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private fireService: FirestoreService) { }
+  constructor(public fireService: FirestoreService) { }
 
   ngOnInit() {
-    this.fireService.getUsersAll().subscribe((users: User[]) => this.users = users);
+      console.log(this.fireService.users$);
   }
 
 }
