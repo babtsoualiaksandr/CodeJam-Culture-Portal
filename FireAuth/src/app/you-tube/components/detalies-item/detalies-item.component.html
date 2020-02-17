@@ -1,0 +1,26 @@
+<mat-card class="card" setBorder [publicationDate]="publicationDate">
+  <img mat-card-image src="{{ item.snippet.thumbnails.high.url }}" alt="thumbnails" />
+
+  <mat-card-header>
+    <mat-card-subtitle>
+      <mat-icon>visibility</mat-icon>
+      {{ item.statistics?.viewCount }}
+      <mat-icon>favorite</mat-icon>
+      {{ item.statistics?.likeCount }}
+      <mat-icon>favorite_outline</mat-icon>
+      {{ item.statistics?.dislikeCount }}
+      <mat-icon>comment</mat-icon>
+      {{ item.statistics?.commentCount }}
+    </mat-card-subtitle>
+    <mat-card-title>{{ item.snippet.title }}</mat-card-title>
+    <mat-card-content>
+      {{item.snippet.description}}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary">
+        <a routerLink="/home/youtube" routerLinkActive="active">Back..</a>
+        <mat-icon>keyboard_backspace</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card-header>
+</mat-card>

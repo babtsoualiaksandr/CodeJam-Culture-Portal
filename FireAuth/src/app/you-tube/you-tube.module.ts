@@ -10,11 +10,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenavModule, MatSliderModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatCardModule, MatGridListModule } from '@angular/material';
+import { MatSidenavModule, MatSliderModule, MatToolbarModule,
+          MatButtonModule, MatFormFieldModule, MatInputModule,
+          MatCardModule, MatGridListModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SortPipe } from './pipes/sort.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { YouTubeComponent } from './components/you-tube/you-tube.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { NgxSpinnerModule } from   'ngx-spinner';
+import { DetaliesItemComponent } from './components/detalies-item/detalies-item.component';
+import { YouTubeMainComponent } from './components/you-tube-main/you-tube-main.component' ;
 
 
 
@@ -28,11 +35,12 @@ import { YouTubeComponent } from './components/you-tube/you-tube.component';
     SortPipe,
     FilterPipe,
     YouTubeComponent,
+    DetaliesItemComponent,
+    YouTubeMainComponent,
   ],
   imports: [
     CommonModule,
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
     MatSidenavModule,
@@ -45,6 +53,9 @@ import { YouTubeComponent } from './components/you-tube/you-tube.component';
     MatInputModule,
     MatCardModule,
     MatGridListModule,
+    HttpClientModule,
+    NgxSpinnerModule,
+    AppRoutingModule
 
   ]
 })
