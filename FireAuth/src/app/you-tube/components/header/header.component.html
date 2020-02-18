@@ -1,9 +1,9 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-icon-button>
+    <button mat-icon-button (click)="onShowSort()">
       <mat-icon>menu</mat-icon>
     </button>
-    <div class= "search" fxFlex fxLayout="row" fxLayoutAlign="end center">
+    <div class= "search" fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
       <button mat-icon-button>
         <mat-icon>play_circle_filled</mat-icon>
       </button>
@@ -20,7 +20,6 @@
         <mat-icon>tune</mat-icon>
       </button>
     </div>
-    <span></span>
     <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
       <ul fxLayout="row" fxLayoutGap="20px">
         <li>You Name</li>

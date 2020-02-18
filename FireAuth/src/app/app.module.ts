@@ -25,7 +25,16 @@ import { MatSliderModule } from '@angular/material/slider';
 
 import { VerticalTimelineModule } from 'angular-vertical-timeline';
 import { YouTubeModule } from './you-tube/you-tube.module';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MatFormFieldModule } from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
+import { FormsModule }   from '@angular/forms';
 
+export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -65,10 +74,21 @@ import { YouTubeModule } from './you-tube/you-tube.module';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
     FlexLayoutModule,
     MatListModule,
     FireModule,
     YouTubeModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        // экспортированная factory функция, необходимая для компиляции в режиме AoT
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

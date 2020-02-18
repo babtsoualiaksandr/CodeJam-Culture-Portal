@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'FireAuth';
+  public title: string = 'FireAuth';
+  constructor(translate: TranslateService) {
+    translate.addLangs(['ru', 'by']);
+    translate.setDefaultLang('ru');
+    translate.use('by');
+
+  }
 }

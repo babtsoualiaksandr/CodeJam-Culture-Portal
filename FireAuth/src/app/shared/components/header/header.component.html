@@ -3,7 +3,13 @@
     <button mat-icon-button (click)="toggleSideBarShow()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span>{{ user?.displayName }}</span>
+    
+    <select #langSelect (change)="translate.use(langSelect.value)">
+      <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+    </select>
+
+    {{"user" | translate: user }}
+    <span> {{ user?.displayName }}</span>
     <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
       <ul fxLayout="row" fxLayoutGap="20px">
         <li>
